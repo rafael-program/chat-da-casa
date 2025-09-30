@@ -15,21 +15,11 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background: #111b21;
-  color: white;
-}
 * {
-  box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html,
@@ -40,8 +30,9 @@ body {
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
+  color: white;
   background: #111b21;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 a {
@@ -65,4 +56,53 @@ a {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #8696a0;
+}
+
+/* Animações */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.chat-message {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Loading spinner */
+.loading-spinner {
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid #00a884;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Estilos para mensagens vazias */
+.empty-state {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .chat-container {
+    margin: 0;
+    height: 100vh;
+    border-radius: 0;
+  }
+  
+  .chat-header {
+    border-radius: 0;
+  }
 }
